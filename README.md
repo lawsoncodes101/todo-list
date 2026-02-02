@@ -60,7 +60,7 @@ A dynamic Todo List application built with JavaScript that allows users to creat
 1. Clone the repository:
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/lawsoncodes101/todo-list.git
 cd todo-app
 ```
 
