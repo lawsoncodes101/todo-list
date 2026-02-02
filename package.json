@@ -1,0 +1,32 @@
+{
+    "name": "todo-list",
+    "version": "1.0.0",
+    "description": "A dynamic Todo List application built with JavaScript that allows users to create, organize, and manage tasks in multiple projects. Todos are objects that can be dynamically created using classes or factories, and the app persists data using `localStorage`.",
+    "main": "index.js",
+    "scripts": {
+        "build": "webpack --config webpack.prod.js",
+        "dev": "webpack serve --config webpack.dev.js",
+        "deploy": "git subtree push --prefix dist origin gh-pages"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/lawsoncodes101/todo-list.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "type": "module",
+    "bugs": {
+        "url": "https://github.com/lawsoncodes101/todo-list/issues"
+    },
+    "homepage": "https://github.com/lawsoncodes101/todo-list#readme",
+    "devDependencies": {
+        "css-loader": "^7.1.3",
+        "html-loader": "^5.1.0",
+        "html-webpack-plugin": "^5.6.6",
+        "style-loader": "^4.0.0",
+        "webpack": "^5.104.1",
+        "webpack-cli": "^6.0.1",
+        "webpack-merge": "^6.0.1"
+    }
+}
