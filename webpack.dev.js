@@ -9,5 +9,6 @@ export default merge(common, {
         open: true,
         hot: true,
         liveReload: true,
+        watchFiles:['src/**/*']
     },
 });

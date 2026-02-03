@@ -12,7 +12,7 @@ A dynamic Todo List application built with JavaScript that allows users to creat
   - `description`
   - `dueDate`
   - `priority`
-  - Optional: notes, checklist
+  - `subtasks`
 - Mark todos as complete
 - Edit todo details
 - Delete todos
