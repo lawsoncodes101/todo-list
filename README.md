@@ -33,7 +33,6 @@ A dynamic Todo List application built with JavaScript that allows users to creat
 - Uses `localStorage` to save projects and todos
 - Data persists even after page refresh
 - Automatically loads saved data when the app starts
-- Handles empty or missing data gracefully
 
 ---
 
@@ -41,7 +40,7 @@ A dynamic Todo List application built with JavaScript that allows users to creat
 
 - **JavaScript (ES6+)**  
 - **Webpack** for bundling modules  
-- **date-fns** (optional) for date formatting and manipulation  
+- **date-fns** for date formatting and manipulation  
 - **localStorage API** for persistence  
 
 ---
@@ -61,7 +60,7 @@ A dynamic Todo List application built with JavaScript that allows users to creat
 
 ```bash
 git clone https://github.com/lawsoncodes101/todo-list.git
-cd todo-app
+cd todo-list
 ```
 
 2. Install dependencies:
