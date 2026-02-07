@@ -1,0 +1,24 @@
+Todo List
+
+Users should able to:
+1. Add a task
+2. Edit a task
+3. Delete a task
+
+The web app will:
+1. Save user data to localStorage
+2. Load data from localStorage
+
+The web app will not:
+1. Use a database
+2. Have authentication
+
+When a user submits the task:
+1. Add the data to the array
+2. Function for saving to localStorage
+3. Function for rendering the UI
+
+When a user deletes a task:
+1. Remove button runs an event that executes the removeFromLibrary function in storage.js
+2. The tasks deletes itself from the UI
+2. Function for updating localStorage with new library
