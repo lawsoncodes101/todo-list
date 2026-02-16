@@ -1,7 +1,7 @@
 function createProject(title) {
-    const tasks = [];
+    const todos = [];
 
-    return { title, tasks };
+    return { title, todos };
 }
 
 export { createProject};

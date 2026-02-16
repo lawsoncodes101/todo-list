@@ -1,39 +1,46 @@
-import { removeTask, updateProjects } from "./storage.js";
+import { removeTodo, updateProjects } from "./storage.js";
 
-function renderTasks(parentElem, library) {
+function renderTodos(parentElem, library) {
     while (parentElem.childElementCount > 0) {
         parentElem.removeChild(parentElem.firstChild);
     }
 
-    library.forEach((task) => {
-        const taskContainer = document.createElement("div");
+    library.forEach((todo) => {
+        const todoContainer = document.createElement("div");
         const title = document.createElement("div");
         const priority = document.createElement("div");
         const dueDate = document.createElement("div");
+        const description = document.createElement("div");
         const project = document.createElement("div");
         const removeBtn = document.createElement("button");
 
-        title.textContent = task.title;
-        priority.textContent = task.priority;
-        dueDate.textContent = task.dueDate;
-        project.textContent = task.project;
+        title.textContent = todo.title;
+        priority.textContent = todo.priority;
+        dueDate.textContent = todo.dueDate;
+        description.textContent = todo.description;
+        project.textContent = todo.project;
         removeBtn.textContent = "Delete";
         removeBtn.addEventListener("click", function () {
             let parent = removeBtn.parentElement;
             parent.parentElement.removeChild(parent);
-            removeTask(task.id);
+            removeTodo(todo.id);
             updateProjects();
         });
 
-        taskContainer.append(title, priority, dueDate, project, removeBtn);
-        parentElem.appendChild(taskContainer);
+        todoContainer.append(
+            title,
+            priority,
+            dueDate,
+            description,
+            project,
+            removeBtn,
+        );
+        parentElem.appendChild(todoContainer);
     });
 }
 
-function renderProjects(projectLibrary, taskLibrary) {}
-
 function renderOptions(library) {
-    const select = document.querySelector("#task-project");
+    const select = document.querySelector("#todo-project");
     while (select.childElementCount > 1) {
         select.removeChild(select.lastChild);
     }
@@ -47,4 +54,4 @@ function renderOptions(library) {
     });
 }
 
-export { renderTasks, renderOptions };
+export { renderTodos, renderOptions };

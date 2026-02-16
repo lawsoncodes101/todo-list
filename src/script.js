@@ -1,41 +1,51 @@
-import { createTask } from "../modules/taskFactory.js";
-import { createProject } from "../modules/projectFactory.js";
+import { createTodo } from "./modules/todoFactory.js";
+import { createProject } from "./modules/projectFactory.js";
 import {
-    taskLibrary,
+    todoLibrary,
     projectLibrary,
-    addTask,
-    saveTasks,
+    addTodo,
+    saveTodos,
     addProject,
     updateProjects,
-    validateProject,
+    invalidProject,
     saveProjects,
-} from "../modules/storage.js";
-import { renderOptions, renderTasks } from "../modules/ui.js";
+} from "./modules/storage.js";
+import { renderOptions, renderTodos } from "./modules/renderTodos.js";
+import { renderProjects } from "./modules/renderProjects.js";
 import "./style.css";
 
-const taskList = document.querySelector(".task-list");
+
+const todoList = document.querySelector(".todos");
 document.addEventListener("DOMContentLoaded", function () {
-    renderTasks(taskList, taskLibrary);
+    renderTodos(todoList, todoLibrary);
     renderOptions(projectLibrary);
 });
 
-document.querySelector(".add-task").addEventListener("click", function (e) {
+const projectList = document.querySelector(".projects");
+document.addEventListener("DOMContentLoaded", function() {
+    renderProjects(projectList, projectLibrary);
+})
+
+document.querySelector(".add-todo").addEventListener("click", function (e) {
     e.preventDefault();
 
-    const title = document.querySelector("#task-title");
-    const priority = document.querySelector("#task-priority");
-    const dueDate = document.querySelector("#task-dueDate");
-    const project = document.querySelector("#task-project");
+    const title = document.querySelector("#todo-title");
+    const priority = document.querySelector("#todo-priority");
+    const dueDate = document.querySelector("#todo-dueDate");
+    const project = document.querySelector("#todo-project");
+    const description = document.querySelector("#todo-ds");
 
     if (title.value === "") return;
     if (isNaN(new Date(dueDate.value))) return;
 
-    const task = createTask(title.value, priority.value, dueDate.value);
-    task.project = project.value;
-    addTask(task);
+    const todo = createTodo(title.value, priority.value, dueDate.value);
+    todo.project = project.value;
+    todo.description = description.value;
+    addTodo(todo);
     updateProjects();
-    saveTasks();
-    renderTasks(taskList, taskLibrary);
+    saveTodos();
+    renderTodos(todoList, todoLibrary);
+    renderProjects(projectList, projectLibrary);
 
     title.value = "";
     priority.value = "normal";
@@ -47,13 +57,14 @@ document.querySelector(".add-project").addEventListener("click", function (e) {
 
     const title = document.querySelector("#project-title");
     if (title.value === "") return;
-    if (!validateProject(title.value)) return;
+    if (invalidProject(title.value)) return;
 
     const project = createProject(title.value);
     addProject(project);
     updateProjects();
     saveProjects();
     renderOptions(projectLibrary);
+    renderProjects(projectList, projectLibrary);
 
     title.value = "";
 });

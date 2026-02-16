@@ -9,28 +9,32 @@
         <dialog open>
             <form>
                 <div>
-                    <label for="task-title">Title:</label>
-                    <input type="text" id="task-title" />
+                    <label for="todo-title">Title:</label>
+                    <input type="text" id="todo-title" />
                 </div>
                 <div>
-                    <label for="task-priority">Priority:</label>
-                    <select id="task-priority">
+                    <label for="todo-priority">Priority:</label>
+                    <select id="todo-priority">
                         <option value="high">High</option>
                         <option value="normal" selected>Normal</option>
                         <option value="low">Low</option>
                     </select>
                 </div>
                 <div>
-                    <label for="task-project">Project:</label>
-                    <select id="task-project">
+                    <label for="todo-ds">Description:</label>
+                    <input type="text" id="todo-ds" />
+                </div>
+                <div>
+                    <label for="todo-project">Project:</label>
+                    <select id="todo-project">
                         <option value="none">None</option>
                     </select>
                 </div>
                 <div>
-                    <label for="task-dueDate">Deadline:</label>
-                    <input type="date" id="task-dueDate" />
+                    <label for="todo-dueDate">Deadline:</label>
+                    <input type="date" id="todo-dueDate" />
                 </div>
-                <button type="submit" class="add-task">Add Task</button>
+                <button type="submit" class="add-todo">Add Todo</button>
             </form>
         </dialog>
 
@@ -43,7 +47,8 @@
                 <button type="submit" class="add-project">Add Project</button>
             </form>
         </dialog>
-        <div class="task-list"></div>
-        <div class="project-list"></div>
+        
+        <div class="todos"></div>
+        <div class="projects"></div>
     </body>
 </html>
